@@ -1,0 +1,33 @@
+<!--
+    모든 노드는 Node로부터 상속받는 nodeType 및 nodeName 속성을 가짐
+    예를 들어 Text노드의 nodeType 코드는 3이며 nodeType값은 #text임
+
+    이전에 언급했듯 숫자 값 3은 노드가 나타내는 내장 개체의 형식을 나타내는 숫자 코드임.
+
+    아래 짜볼 코드는 이 책에서 논의된 노드 개체들의 nodeType 및 nodeName에서
+    반환되는 값임.
+
+    숫자 코드 5개만을 다루고 있음.
+    흔히 사용되는 노드들의 숫자 값은 외워두는 것이 좋다고 함.
+
+-->
+<!doctype html>
+<html>
+    <body>
+        <a href="#">hi</a>
+        <script>
+            /* Node.DOCUMENT_TYPE.NODE
+               DOCUMENT_TYPE_NODE
+               nodeType
+            
+               : 10임
+            */
+            console.log(
+                document.doctype.nodeName, /* html이 기록된다고함. document.doctype를 시도하면 <!doctype html>을 얻을 수 있다고 함.*/
+                document.doctype.nodeType /* DOCUMENT_NODE에 매핑되는 10이 기록됨. */
+            );
+
+
+        </script>
+    </body>
+</html>
