@@ -84,6 +84,33 @@
             /* 노드 유형을 판별하는 것은 해당 노드에서 사용 가능한 속성과 메서드를
                알 수 있게 해주므로 스크립트 작성시 매우 유용하다고 함. */
 
+            
+            console.log(document.doctype.nodeValue);
+            console.log(document.nodeValue);
+            console.log(document.createDocumentFragment().nodeValue);
+            console.log(document.querySelector('a').nodeValue);
+            /* 모두 null로 기록됨 */
+
+            console.log(document.querySelector('a').firstChild.nodeValue); /* hi가 기록됨 */
+            /* 텍스트 문자열을 기록함 */
+
+            /* nodeValue 속성은 Text와 Comment를 제외한
+               대부분 노드 유형에서는 null값을 반환함.
+
+               이 속성의 용도는 Text와 Comment 노드에서
+               실제 텍스트 문자열을 추출하는데
+               초점을 맞추고 있다고 함.
+
+            */
+
+            /* 예로 Text나 Comment 노드 값은 nodeValue 속성에
+               새로운 문자열 값을 부여해서 설정할 수 있다고 함.
+            */
+            document.querySelector('a').firstChild.nodeValue= 'hi2';
+            // document.body.firstElementChild.nodeValue= 'hi2'; /* 이런식으로 */
+            
+            console.log(document.querySelector('a').firstChild.nodeValue); /* 재 조회시 hi2가 기록됨 */
+            
         </script>
     </body>
 </html>
