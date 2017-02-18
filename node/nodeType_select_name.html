@@ -26,6 +26,22 @@
                 document.doctype.nodeName, /* html이 기록된다고함. document.doctype를 시도하면 <!doctype html>을 얻을 수 있다고 함.*/
                 document.doctype.nodeType /* DOCUMENT_NODE에 매핑되는 10이 기록됨. */
             );
+            /* Node.DOCUMENT_NODE
+               DOCUMENT_NODE
+               nodeType
+               
+               : 9임   
+            */
+            /* https://developer.mozilla.org/ko/docs/Web/API/Document/createDocumentFragment
+
+               createDocumentFragment()
+               
+               메서드와 속성을 가진 새노드 생성함.
+            */
+            console.log(
+                document.createDocumentFragment().nodeName, /* #document-fragment가 기록됨 */
+                document.createDocumentFragment().nodeType /* DOCUMNET_FRAGMENT_NODE에 매핑되는 11이 기록됨 */
+            );
 
 
         </script>
