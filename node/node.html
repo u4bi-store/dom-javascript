@@ -1,0 +1,56 @@
+<!-- 문서개체모델은 자바스크립트 node 개체의 계층화된 트리임
+     문서개체모델 : Document Object Model 즉 DOM
+-->
+
+<!-- html 문서를 작성할 때에는
+     html 콘텐츠를 다른 html 콘텐츠 내에 캡슐화하게 됨.
+
+     이를 통해 트리로
+     표현 가능한 계층 구조가 만들어진다고 함.
+
+     대개 이런 계층 구조나 캡슐화 시스템은
+     html 문서 내에서 들여쓰기 표시를 통해
+     시각적으로 표시된다고 함.
+
+     브라우저는 html문서를 로딩시 이 계층 구조를 해석해서 마크업이
+     어떻게 캡슐화 되었는지를 보여주는 노드 개체 트리를 생성한다고 함.
+
+     브라우저는 html 코드를 해석해서 트리 형태로
+     구조화된 노드들을 가지고 있는 문서를 생성한다고 함.
+-->
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>node</title>
+    </head>
+    <body>
+        <script>
+            /* 아래 말대로 찍어보자. */
+            console.log(Node.ELEMENT_NODE) /* element 노드의 숫자 코드값인 1 출력됨.*/
+
+        </script>
+    </body>
+</html>
+
+<!-- 예를 들어 body 요소는 element 노드이자 HTMLBodyElement 인터페이스의 인스턴스임.
+     즉 여기서 알아둬야 할 것은 html 문서가 브라우저에 의해 해석되어 실제 문서를 나타내서
+     이 문서에 대한 스크립트 작성을 위한 프로그래밍 인터페이스를 제공한다는 것임.
+     예로 삭제, 추가, 바꾸기, 이벤트 처리 수정같은.
+-->
+
+<!-- html 문서를 다룰 때 마주치게 되는 가장 일반적인 노드 유형 node type은 다음과 같음
+     
+     DOCUMENT_NODE (예로 window.docuemnt)
+     ELEMENT_NODE  (예로 <body> <a> <p> <script> <styple> <html> <h1>
+     ATTRIBUTE_NODE (예로 class="funEdges")
+     TEXT_NODE (예로 줄바꿈과 공백을 포함한 HTML 문서내의 텍스트 문자)
+     DOCUMENT_FRAGMENT_NODE (예로 document.createDocumentFragment())
+     DOCUMENT_TYPE_NODE (예로 <!doctype html>)
+
+     이 목록에 있는 노드 유형 형식은 모두 대문자이고 _ 단어로 구분함.
+     javascript 브라우저 환경에서 node 개체의 속성으로 기록되는 상수값의 속성과 동일함.
+     node의 이 속성들은 상수값임. node 개체의 특정 유형에 매핑되는 숫자 코드 값을 저장하는데 사용 됨.
+     
+     예를 들어 다음 코드에서 NODE.ELEMENT_NODE는 1과 동일함.
+     바로 이 1이 element 노드를 식별하는데 사용되는 코드값이라고 함.
+->
