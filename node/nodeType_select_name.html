@@ -52,7 +52,19 @@
 
             console.log(
                 document.querySelector('a').firstChild.nodeName, /* #text가 기록됨 */
-                document.querySelector('a').firstChild.nodeType /* TEXT_NODE에 매핑되는 3인 기록됨.*/
+                document.querySelector('a').firstChild.nodeType /*ELEMENT_NODE에 매핑되는 1인 기록됨.*/
+            );
+
+            /* Node.TEXT_NODE
+               TEXT_NODE
+               nodeType
+
+               : 3임
+            */
+
+            console.log(
+                document.querySelector('a').firstChild.nodeName, /* #text가 기록됨 */
+                document.querySelector('a').firstChild.nodeType /* TEXT_NODE에 매핑되는 3이 기록됨*/
             );
 
 
