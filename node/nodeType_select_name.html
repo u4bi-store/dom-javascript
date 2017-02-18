@@ -67,6 +67,22 @@
                 document.querySelector('a').firstChild.nodeType /* TEXT_NODE에 매핑되는 3이 기록됨*/
             );
 
+            /* 만약 명확하지 않은 경우에 노드의 유형을 판별하는 가장 빠른 방법은
+               nodeType 속성을 확인해보는 것임.
+
+               아래 코드는 anchor요소의 nodeTyperk 1인지를 확인해보는거임.
+
+               1이 맞으면 Node.Element_NODE 임
+
+            */
+
+            console.log(
+                document.querySelector('a').nodeType === 1
+                /* <a>는 Element 노드 이므로 true가 기록 됨*/
+            );
+
+            /* 노드 유형을 판별하는 것은 해당 노드에서 사용 가능한 속성과 메서드를
+               알 수 있게 해주므로 스크립트 작성시 매우 유용하다고 함. */
 
         </script>
     </body>
