@@ -24,7 +24,37 @@
         <title>node</title>
     </head>
     <body>
+        
+        <!-- 모든 유형이 Node 개체로부터 속성 및 메서드를 상속받는다는 것을 검증하기 위해
+             Element 노드 개체에 대해 루프를 돌면서 속성과 메서드들 확인해보기.
+        -->
+        <a href="#"></a> <!-- 상속받은 HTMLAnchorElement -->
         <script>
+            /* element 노드 개체에 대한 참조를 얻음 */
+            var nodeAnchor = document.querySelector('a');
+
+            /* element 노드 개체에 대한 속성키를 저장하기 위한 props 배열을 생성함*/
+            var props = [];
+            /* element노드 개체에 대해 루프를 돌면서 모든 속성 및 메서드(상속받은 것포함)를 얻어냄*/
+            for(var key in nodeAnchor)props.push(key);
+            /* 속성 및 메서드를 알파벳순으로 기록하기 솔팅함 */
+            console.log(props.sort());
+
+            /* 이 코드를 웹 브라우저에서 실행해보면
+               해당 element 노드 개체에 존재하는 속성들의
+               긴 목록을 볼 수 있을 것임.
+               
+               이 긴 목록에는 Node 개체로부터 상속받은 속성 및
+               메서드뿐만 아니라 Element, HTMLElement, HTMLAnchorElement, Node, Object 개체로부터
+               상속받은 수많은 속성 및 메서드가 존재한다고 함.
+               
+               자 여기서 요점은 이 모든 속성과 메서드를 살펴보는 것이 아니라.
+               모든 노드가 prototype 체인의 속성뿐만 아니라 생성자로부터
+               일련의 기본 속성 및 메서드를 상속받는다는 점을 언급하기 위한 것임.
+
+            */
+            
+
             /* 아래 말대로 찍어보자. */
             console.log(Node.ELEMENT_NODE) /* element 노드의 숫자 코드값인 1 출력됨.*/
             
@@ -118,4 +148,33 @@
      
      이는 w3s 및 whatwg에서 제공하는 사양서에서 사용되는 어투와 일관성을 유지하기 위한 것이라고 함.
      
+     -->
+
+
+     <!-- 통상적인 dom 트리의 각 노드 객체는 node로부터 속성과 메서드를 상속받는다고 함.
+          문서내의 노드 유형에 따라 node 개체를 확장한 하위 노드 개체/인터페이스가
+          추가로 존재한다고 함.
+
+          다음 목록은 가장 일반적인 노드 인터페이스에 대해
+          브라우저에서 구현된 상속 모델을 나열하고 있다고 함.
+
+          < 은 ~ 으로부터 상속 받음이라고 함.
+
+          Object < Node < Element < HTMLElement 
+          Object < Node < Attr (DOM4에서 사용이 금지 되었다고 함.)
+          Object < NOde < CharacterData < Text
+          Object < Node < Document < HTMLDocument
+          Object < Node < DocumentFragment
+
+          여기서 알아둘 점은
+          모든 노드 유형은 Node로부터 상속받는다는 것뿐만 아니라
+          상속 체인이 길어질수도 있음을 알아두는 것이 중요하다고 함.
+
+          예를 들어 모든 HTMLAnchorElement 노드는
+          HTMLElement, Element, Node, Object 개체로부터 속성 및 메서드를 상속받는다고 함.
+
+          그리고 Node는 javascript 생성자 함수에 불과함.
+          따라서 논리적으로 볼 때 Node는 javascript의 다른 개체들처럼
+          Object.prototype으로부터 상속받는다고 함.
+
      -->
