@@ -178,3 +178,62 @@
           Object.prototype으로부터 상속받는다고 함.
 
      -->
+
+<!-- 모든 노드 개체 element, attr, text등은 속성과 메서드를
+     1차적으로 Node 개체로부터 상속받음.
+     
+     이 속성 및 메서드는 DOM을 조작 조사 탐색하는 기준이 되는 값과 함수임.
+     노드 인터페이스에서 제공되는 속성 및 메서드외에
+     docuemnet HTMLElement 인터페이스와 같은
+     하위 노드 인터페이스에서도 수많은 관련 속성 및 메서드가 제공된다고함.
+
+     아래 나열한건 모든 노드 개체에서 상속되는 것 중 가장 흔히 사용되는 
+     Node 속성 및 메서드임.
+
+     하위 노드 인터페이스에 속한 노드들을 다루기 위한 관련 속성들도 포함되어 있음.
+
+     Node 속성
+        childNodes
+        firstChild
+        lastChild
+        nextSibling
+        nodeName
+        nodeType
+        nodeValue
+        parentNode
+        previousSibling
+
+    Node 메서드
+        appendChild()
+        cloneNode()
+        compareDocumentPostion()
+        contains()
+        compareDocumentPosition()
+        contains()
+        hasChildNodes()
+        insertBefore()
+        isEqualNode()
+        removeChild()
+        replaceChild()
+    
+    Document 메서드
+        document.createElement()
+        document.createTextNode()
+    
+    HTMLElement 속성
+        innerHTML
+        outerHTML
+        textContent
+        innerText
+        outerText
+        firstElementChild
+        lastElementChild
+        nextElementChild
+        previousElementChild
+        children
+    
+    HTMLElement 메서드
+        insertAdjacentHTML()
+    
+    
+-->
