@@ -27,7 +27,47 @@
         <script>
             /* 아래 말대로 찍어보자. */
             console.log(Node.ELEMENT_NODE) /* element 노드의 숫자 코드값인 1 출력됨.*/
+            
+            /* 모든 노드 유형과 그 값을 출력해보기. */
+            for(var key in Node){
+                console.log(key, '=', Node[key]);
+            }
+            /* 모든 노드를 찍어봤을 때 콘솔에서의 값 즉 내용은 이렇게 나옴
 
+                ELEMENT_NODE = 1
+                ATTRIBUTE_NODE = 2
+                TEXT_NODE = 3
+                CDATA_SECTION_NODE = 4
+                ENTITY_REFERENCE_NODE = 5
+                ENTITY_NODE = 6
+                PROCESSING_INSTRUCTION_NODE = 7
+                COMMENT_NODE = 8
+                DOCUMENT_NODE = 9
+                DOCUMENT_TYPE_NODE = 10
+                DOCUMENT_FRAGMENT_NODE = 11
+                NOTATION_NODE = 12
+                DOCUMENT_POSITION_DISCONNECTED = 1
+                DOCUMENT_POSITION_PRECEDING = 2
+                DOCUMENT_POSITION_FOLLOWING = 4
+                DOCUMENT_POSITION_CONTAINS = 8
+                DOCUMENT_POSITION_CONTAINED_BY = 16
+                DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 32
+
+                이 예제 코드는 모든 노드 유형을 포괄하고 있는 목록을 제공함.
+                이 책의 목적상 이번 절의 시작부에서는 노드 유형들 중 일부만을 다뤘음.
+                이 노드들이 html 페이지에서 스크립트를 작성할 때 가장 많이 마주치는 것들임.
+
+                가장 흔히 사용되는 도드 유형들의 인스턴스를 생성하는
+                인터페이스/생성자의 이름과 관련된 nodeType 분류의 숫자 및 이름을 나열 하였음.
+                이 표에서 알아둬야할 점은 nodeType 값은 단지 특정한 javscript
+                인터페이스/생성자로부터 생성되는 노드가 유형을 기술하는데 사용되는 숫자 분류에
+                불과하다는 점임.
+
+                예를 들어 HTMLBodyElement 인터페이스는 ELEMENT_NODE의 분류인
+                노드 유형1을 가지는 노드 개체를 의미한다고 함.
+
+                다시 말해 단순히 유형을 기술하는데 사용되는 숫자라고 함.
+            */
         </script>
     </body>
 </html>
