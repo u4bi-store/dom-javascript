@@ -77,13 +77,11 @@
             */
 
             console.log(
-                document.querySelector('a').nodeType === 1
-                /* <a>는 Element 노드 이므로 true가 기록 됨*/
+                document.querySelector('a').nodeType === 1 /* <a>는 Element 노드 이므로 true가 기록 됨*/
             );
 
             /* 노드 유형을 판별하는 것은 해당 노드에서 사용 가능한 속성과 메서드를
                알 수 있게 해주므로 스크립트 작성시 매우 유용하다고 함. */
-
             
             console.log(document.doctype.nodeValue);
             console.log(document.nodeValue);
@@ -94,9 +92,8 @@
             console.log(document.querySelector('a').firstChild.nodeValue); /* hi가 기록됨 */
             /* 텍스트 문자열을 기록함 */
 
-            /* nodeValue 속성은 Text와 Comment를 제외한
-               대부분 노드 유형에서는 null값을 반환함.
-
+            /* nodeValue 속성은 Text와 Comment를 제외한 대부분 노드 유형에서는 null값을 반환함.
+            
                이 속성의 용도는 Text와 Comment 노드에서
                실제 텍스트 문자열을 추출하는데
                초점을 맞추고 있다고 함.

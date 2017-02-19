@@ -49,6 +49,7 @@
                상속받은 수많은 속성 및 메서드가 존재한다고 함.
                
                자 여기서 요점은 이 모든 속성과 메서드를 살펴보는 것이 아니라.
+               
                모든 노드가 prototype 체인의 속성뿐만 아니라 생성자로부터
                일련의 기본 속성 및 메서드를 상속받는다는 점을 언급하기 위한 것임.
 
@@ -83,12 +84,9 @@
                 DOCUMENT_POSITION_CONTAINED_BY = 16
                 DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 32
 
-                이 예제 코드는 모든 노드 유형을 포괄하고 있는 목록을 제공함.
-                이 책의 목적상 이번 절의 시작부에서는 노드 유형들 중 일부만을 다뤘음.
-                이 노드들이 html 페이지에서 스크립트를 작성할 때 가장 많이 마주치는 것들임.
-
                 가장 흔히 사용되는 도드 유형들의 인스턴스를 생성하는
                 인터페이스/생성자의 이름과 관련된 nodeType 분류의 숫자 및 이름을 나열 하였음.
+                
                 이 표에서 알아둬야할 점은 nodeType 값은 단지 특정한 javscript
                 인터페이스/생성자로부터 생성되는 노드가 유형을 기술하는데 사용되는 숫자 분류에
                 불과하다는 점임.
@@ -103,6 +101,7 @@
 </html>
 
 <!-- 예를 들어 body 요소는 element 노드이자 HTMLBodyElement 인터페이스의 인스턴스임.
+
      즉 여기서 알아둬야 할 것은 html 문서가 브라우저에 의해 해석되어 실제 문서를 나타내서
      이 문서에 대한 스크립트 작성을 위한 프로그래밍 인터페이스를 제공한다는 것임.
      예로 삭제, 추가, 바꾸기, 이벤트 처리 수정같은.
@@ -110,81 +109,63 @@
 
 <!-- html 문서를 다룰 때 마주치게 되는 가장 일반적인 노드 유형 node type은 다음과 같음
      
-     DOCUMENT_NODE (예로 window.docuemnt)
-     ELEMENT_NODE  (예로 <body> <a> <p> <script> <styple> <html> <h1>
-     ATTRIBUTE_NODE (예로 class="funEdges")
-     TEXT_NODE (예로 줄바꿈과 공백을 포함한 HTML 문서내의 텍스트 문자)
-     DOCUMENT_FRAGMENT_NODE (예로 document.createDocumentFragment())
-     DOCUMENT_TYPE_NODE (예로 <!doctype html>)
+     DOCUMENT_NODE
+            (예로 window.docuemnt)
+     ELEMENT_NODE 
+            (예로 <body> <a> <p> <script> <styple> <html> <h1>
+     ATTRIBUTE_NODE
+            (예로 class="funEdges")
+     TEXT_NODE
+            (예로 줄바꿈과 공백을 포함한 HTML 문서내의 텍스트 문자)
+     DOCUMENT_FRAGMENT_NODE
+            (예로 document.createDocumentFragment())
+     DOCUMENT_TYPE_NODE
+            (예로 <!doctype html>)
 
      이 목록에 있는 노드 유형 형식은 모두 대문자이고 _ 단어로 구분함.
      javascript 브라우저 환경에서 node 개체의 속성으로 기록되는 상수값의 속성과 동일함.
-     node의 이 속성들은 상수값임. node 개체의 특정 유형에 매핑되는 숫자 코드 값을 저장하는데 사용 됨.
+     node의 이 속성들은 상수값임.
      
      예를 들어 다음 코드에서 NODE.ELEMENT_NODE는 1과 동일함.
-     바로 이 1이 element 노드를 식별하는데 사용되는 코드값이라고 함.
+     
+     즉 바로 이 1이 Element 노드를 식별하는데
+     사용되는 코드값이라고 함.
 ->
 
-<!-- dom 사양에서는 의미상 node element text attr HTMLAnchorElement를
-     인터페이스로 분류하고 있지만 노드를 생성하는 javascript 생성자 함수에
-     부여된 이름이기도 하다는 점을 명심하기 바람.
-     
-     사양에서는 이 인터페이스들을 인터페이스로 간주하고 있더라도.
-     이책에서는 개채나 생성자함수로 언급함.
-     
-     ATTRIBUTE_NODE는 실제로는 트리의 일부가 아니지만 역사적인 이유로
-     목록에 포함되었다고 함.
-     이책에서 attribute 노드에 대해 한장을 할애하지는 않지만
-     3장에서 다룰 것인데
-     
-     실제 dom 트리 구조에 참여하지 않는 element 노드의 하위 노드인 것으로 간주하고 있다고 함.
-     ATTRIBUTE_NODE는 DOM4에서 사용이 금지 되었다는 점에 유의 바란다고 함.
-     
-     또 이책에서 COMMENT_NODE에 대해서 상세한 내ㅛㅇ을 포함하고 있지 않지만
-     HTML문서 내의 주석은 COMMENT노드이며 사실상 TEXT 노드와 유사하다는 점을 알야 한다고함.
-     
-     이책 전반에 걸쳐 노드들에 대해서 다루겠지만 특정 노드를 nodeType 예로 ELEMENT_NODE라며
-     사용해서 언급하는 경우는 별로 없을거라고 함.
-     
-     이는 w3s 및 whatwg에서 제공하는 사양서에서 사용되는 어투와 일관성을 유지하기 위한 것이라고 함.
-     
-     -->
+<!-- 통상적인 dom 트리의 각 노드 객체는 node로부터 속성과 메서드를 상속받는다고 함.
+    
+    문서내의 노드 유형에 따라 node 개체를 확장한 하위 노드 개체/인터페이스가
+    추가로 존재한다고 함.
 
+    
+    < 은 ~ 으로부터 상속 받음이라고 함.
+    Object < Node < Element < HTMLElement 
+    Object < Node < Attr (DOM4에서 사용이 금지 되었다고 함.)
+    Object < NOde < CharacterData < Text
+    Object < Node < Document < HTMLDocument
+    Object < Node < DocumentFragment
 
-     <!-- 통상적인 dom 트리의 각 노드 객체는 node로부터 속성과 메서드를 상속받는다고 함.
-          문서내의 노드 유형에 따라 node 개체를 확장한 하위 노드 개체/인터페이스가
-          추가로 존재한다고 함.
+    여기서 알아둘 점은
 
-          다음 목록은 가장 일반적인 노드 인터페이스에 대해
-          브라우저에서 구현된 상속 모델을 나열하고 있다고 함.
+    모든 노드 유형은 Node로부터 상속받는다는 것뿐만 아니라
+    상속 체인이 길어질수도 있음을 알아두는 것이 중요하다고 함.
 
-          < 은 ~ 으로부터 상속 받음이라고 함.
+    예를 들어 모든 HTMLAnchorElement 노드는
+    HTMLElement, Element, Node, Object 개체로부터 속성 및 메서드를 상속받는다고 함.
 
-          Object < Node < Element < HTMLElement 
-          Object < Node < Attr (DOM4에서 사용이 금지 되었다고 함.)
-          Object < NOde < CharacterData < Text
-          Object < Node < Document < HTMLDocument
-          Object < Node < DocumentFragment
+    그리고 Node는 javascript 생성자 함수에 불과함.
+    
+    따라서 논리적으로 볼 때 Node는 javascript의 다른 개체들처럼
+    Object.prototype으로부터 상속받는다고 함.
 
-          여기서 알아둘 점은
-          모든 노드 유형은 Node로부터 상속받는다는 것뿐만 아니라
-          상속 체인이 길어질수도 있음을 알아두는 것이 중요하다고 함.
-
-          예를 들어 모든 HTMLAnchorElement 노드는
-          HTMLElement, Element, Node, Object 개체로부터 속성 및 메서드를 상속받는다고 함.
-
-          그리고 Node는 javascript 생성자 함수에 불과함.
-          따라서 논리적으로 볼 때 Node는 javascript의 다른 개체들처럼
-          Object.prototype으로부터 상속받는다고 함.
-
-     -->
+-->
 
 <!-- 모든 노드 개체 element, attr, text등은 속성과 메서드를
      1차적으로 Node 개체로부터 상속받음.
      
      이 속성 및 메서드는 DOM을 조작 조사 탐색하는 기준이 되는 값과 함수임.
-     노드 인터페이스에서 제공되는 속성 및 메서드외에
-     docuemnet HTMLElement 인터페이스와 같은
+
+     노드 인터페이스에서 제공되는 속성 및 메서드외에 docuemnet HTMLElement 인터페이스와 같은
      하위 노드 인터페이스에서도 수많은 관련 속성 및 메서드가 제공된다고함.
 
      아래 나열한건 모든 노드 개체에서 상속되는 것 중 가장 흔히 사용되는 
