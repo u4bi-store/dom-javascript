@@ -13,7 +13,39 @@
 <html>
     <body>
         <p>hi, </p>
+
+
+        <!-- 만약에 자식 노드 목록 끝에 노드를 추가하는 것 외
+             삽입 위치를 조정하는 것이 필요할 때 insertBefore()
+             사용하면 된다고 함.
+        -->
+        <ul>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+
         <script>
+
+            var li = document.createElement('li'); /* element 노드와 */
+            var textA = document.createTextNode('1'); /* text 노드를 생성해서 */
+            li.appendChild(textA); /* li에 텍스트를 추가해봄 */
+
+            var ul = document.querySelector('ul'); /* 문서에서 ul을 선택한다. */
+
+
+            ul.insertBefore(li,ul.firstChild); /* 앞에서 생성한 li element를 dom에 추가하고선
+               <ul>에 대해 ul.firstChild를 호출해서
+               <li>2</li>에 대한 참조를 전달함
+            */
+
+            /* insertBefore() 메서드는 2개의 매개변수를 필요로 한다고 함.
+               삽입될 노드와 해당 노드를 삽입하고자 하는 문서 내의 참조 노드라고 함.
+
+               만약 insertBefore 메서드의 두번째 매개변수를 전달하지 않으면
+               이 메서드는 appendChild처럼 동작한다고 함.
+            
+            ----------------------------------------------------------------------*/
+
             /* 임시 element 노드와 text 노드를 생성 */
             var elementNode = document.createElement('strong');
             var textNdoe = document.createTextNode('u4bi');
