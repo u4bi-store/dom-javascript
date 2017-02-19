@@ -1,0 +1,53 @@
+<!--
+    노드 참조 얻으려면 아래와 같은 속성들을 사용해야함.
+
+    돔을 탐색함으로써 다른 노드에 대한 참조를 얻을 수 있다고 함.
+
+    parentNode
+    firstChild
+    lastChild
+    nextSibling
+    previousSibling
+
+-->
+
+<!doctype html>
+<html>
+    <body>
+        <ul><!-- comment -->
+            <li id="A"></li>
+            <li id="B"></li>
+            <!-- comment -->
+        </ul>
+
+        <script>
+            var ul = document.querySelector('ul'); /* ul을 선택해서 저장함*/
+
+            /* ul의 parentNode는? */
+            console.log(ul.parentNode.nodeName); /* body가 출력됨 */
+
+            /* ul의 첫번째 자식은? */
+            console.log(ul.firstChild.nodeName); /* comment가 출력됨 */
+
+            /* ul의 마지막 자식은? */
+            console.log(ul.lastChild.nodeName);
+            /* 줄 바꿈이 있기 때문에 comment 가 아닌 text가 출력됨.*/
+
+            /* 첫번째 li의 nextSibling은? */
+            console.log(ul.querySelector('#A').nextSibling.nodeName);/* text가 출력됨 */
+
+            /* 마지막 li의 previousSibling은? */
+            console.log(ul.querySelector('#B').previousSibling.nodeName); /* text가 출력됨 */
+
+            /* 콘솔 출력 결과
+                
+                BODY
+                #comment
+                #text
+                #text
+                #text
+
+            */
+        </script>
+    </body>
+</html>
