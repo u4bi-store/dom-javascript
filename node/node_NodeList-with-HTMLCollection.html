@@ -1,0 +1,51 @@
+<!--
+    트리에서노드 그룹을 선택하거나 사전에 정의된
+    노드 집합에 접근하려면 해당 노드들이
+    NodeList나 HTMLCollection내에 있어야 한다고 함.
+
+    배열과 유사한 이 개체 컬렉션들은 다음과 같은 특징을 가짐.
+
+    - 기본적으로 노드는 트리 순서에 따라 컬렉션 내에서 정렬 된다고 함.
+    - 컬렉션은 리스트내의 요소개수를 나타내는 랭쓰 속성을 가진다고 함.
+
+-->
+
+<!doctype html>
+<html>
+    <body>
+        <ul>
+            <li>u4bi A</li>
+            <li>u4bi B</li>
+        </ul>
+        <script>
+            var ulElementChildNodes = document.querySelector('ul').childNodes;
+            
+            console.log(ulElementChildNodes); /* ul 내의 전체 노드로 이루어진 유사 배열 리스트를 출력함 */
+
+            /* NodeList에대해 루프를 돌 수 있도록 NodeList의 메서드인
+            foreach를 호출함.
+
+            NodeList[5]
+            0: text1: li
+            2: text
+            3: li
+            4: text
+            length: 5
+            __proto__: NodeList
+            
+            NodeList가 유사 배열이라 가능한 것이라 함.
+            
+            Array로 부터 직접 상속받은 것은 아님. */
+            
+        </script>
+    </body>
+</html>
+
+<!--
+    childNodes에서 반환되는 NodeList는 직계 자식 노드만을 가진다고 함.
+    
+    childNodes가 Element 노드뿐만 아니라
+    다른 노드 유형
+    예로 Text나 Comment 노드도
+    포함한다는 점을 유의하라고 함.
+-->
