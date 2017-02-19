@@ -1,0 +1,61 @@
+<!--
+    innerHTML
+    outerHTML
+    textContext
+    insertAdjacentHTML()
+
+    위에 나열한 속성 및 메서드는
+    javascript 문자열을 사용하여 DOM에 노드를 생성하고 추가하는 기능을 제공함.
+
+    아래 코드에선 innerHTML, outerHTML, textContext 속성을 사용하여
+    javascirpt 문자열부터 노드를 생성한다음 바로 dom에 추가함
+-->
+<!doctype html>
+<html>
+    <body>
+        <div id="A"></div>
+        <div id="B"></div>
+
+        <span id="C"></span>
+
+        <div id="D"></div>
+        <div id="E"></div>
+
+        <script>
+            /* strong element와 text 노드를 생성하고 dom에 추가함 */
+            document.getElementById('A').innerHTML = '<strong>u4bi A</strong>';
+            
+            /* div element와 text 노드를 생성하고
+               <span id="b"></span>을 바꿈 */
+            document.getElementById('B').outerHTML = '<span id="fix_b" class="new">u4bi B</span>';
+
+            /* Text 노드를 생성해서 div#C의 내부를 갱신함 */
+            document.getElementById('C').textContent = 'u4bi C';
+
+/* 아래 innerText와 outerText는 비표준 확장이라함.
+*/
+
+            /* Text 노드를 생성해서 div#D를 내부를 갱신함 */
+            document.getElementById('D').innerText = 'u4bi D';
+
+            /* Text 노드를 생성해서 div#E를 Text 노드로 바꿈
+               여기서 div#E가 사라진다는점을 유의해야함.
+            */
+            document.getElementById('E').outerText = 'u4bi E';
+
+            /* 콘솔로 출력해볼 때 돔이 생성되고 추가된 형태를 보일꺼임*/
+            console.log(document.body.innerHTML);
+
+            /* 콘솔 출력 내역
+
+                <div id="A"><strong>u4bi A</strong></div>
+                <span id="fix_b" class="new">u4bi B</span>
+
+                <span id="C">u4bi C</span>
+
+                <div id="D">u4bi D</div>
+                u4bi E
+            */
+        </script>
+    </body>
+</html>
