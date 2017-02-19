@@ -1,0 +1,43 @@
+<!--
+    dom에 노드를 생성하고 추가하는데 사용하는 것과 동일한 속성들이
+    dom의 일부 혹은 전체를 javascript 문자열로 추출하는데도 사용된다 함.
+-->
+<!doctype html>
+<html>
+    <body>
+
+        <div id="A">
+            <i>u4bi A</i>
+        </div>
+        
+        <div id="B">
+            u4bi B<strong>!</strong>
+        </div>
+
+        <script>
+            console.log(document.getElementById('A').innerHTML); /* <i>u4bi A</i> */
+            console.log(document.getElementById('B').innerHTML); /* u4bi B<strong>!</strong> */
+
+            console.log(document.getElementById('B').textContent);
+            /* 자식 요소 노드내에 텍스트가 있는 경우에도
+               모든 텍스트가 반환되어 나옴.
+
+               그래서 u4bi B! 로 출력
+            */
+
+            /* innerText 및 outerText는 비표준 확장임 */
+            console.log(document.getElementById('B').innerText);
+            console.log(document.getElementById('B').outerText);
+            /* 둘다 모두 u4bi B! 가 출력 됨*/
+        </script>
+
+    </body>
+</html>
+
+<!-- textContent, innerText, outerText 속성은 선택된 노드 내에 포함된
+     모든 텍스트 노드들을 반환한다고 함.
+     
+     예로 document.body.textContent는
+     첫번째 텍스트 노드뿐만 아니라 body 요소내에 포함된 모든 Text노드들을
+     가져온다고 함.
+-->
