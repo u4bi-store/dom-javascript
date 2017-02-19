@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <body>
+        <ul>
+            <li>u4bi A</li>
+            <li>u4bi B</li>
+        </ul>
+
+        <script>
+            var cloneUL = document.querySelector('ul').cloneNode();
+            console.log(cloneUL.constructor);/* HTMLUListElement()가 출력 됨 */
+            console.log(cloneUL.innerHTML); /* ui만이 복제되었으므로 빈 문자열이 출력됨 */
+
+            /* 노드와 그 하위 노드를 모두 복제하려면
+               cloneNode() 메서드의 인자로 true를 전달해야함 */
+            var cloneUL_B = document.querySelector('ul').cloneNode(true);
+            console.log(cloneUL_B.constructor);
+            console.log(cloneUL_B.innerHTML); /* <li>u4bi A</li><li>u4bi B</li>가 출력 됨 */
+
+        </script>
+    </body>
+</html>
+
+<!--
+    Element 노드를 복제할 때 모든 특성 및 값도 복제 됨.
+    
+    단 addEventListener()나 node.onclick으로 추가된 것은 복제되지 않는다고 함.
+
+    cloneNode(true)를 사용해 노드와 그 하위노드를 복제하면
+    NodeList가 반환될 것이라 생각할 수 있지만 실제로는 그렇지 않다고 함.
+    
+    cloneNode()때문에 문서 내에서 요소 ID가 중복될 수도 있다고 함.
+-->
