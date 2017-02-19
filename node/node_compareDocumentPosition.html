@@ -1,0 +1,52 @@
+<!-- contains() 메서드를 사용하면 특정 노드가 다른 노드 내에
+     포함되었는지를 알수 있음.
+     
+     다음 코드에서는 <body>가 <html lang="en"> 내에 있는지를 물어봄
+-->
+
+<!doctype html>
+<html>
+    <body>
+        <script>
+            var inside = document.querySelector('html').contains(document.querySelector('body'));
+            console.log(inside); /* true가 출력 됨 */
+
+            /*
+                만약 dom 트리내에서 주변 노드와 연견돤 노드 위치에 대해
+                보다 확실한 정보를 얻고 싶을 경우
+
+                노드의 compareDocumentPosition()메서드를 사용하면 된다고 함.
+
+                기본적으로 이 메서드는 전달된 노드에
+                상대적으로 선택된 노드에 대한 정보를
+                요청할 수 있게 해준다고 함.
+
+                반환되는 숫자 값의 의미 나열
+
+                - 0 동일한 Element임
+                - 1 선택된 노드와 전달된 노드가 동일한 문서에 존재하지 않음
+                - 2 전달된 노드가 선택된 노드 앞에 있음
+                - 4 전달딘 노드가 선택된 노드 뒤에 있음
+                - 8 전달된 노드가 선택된 노드의 조상임 상위단
+                - 16, 10 전달된 노드가 선택된 노드의 자손임 하위단
+
+                예로 contains는 선택된 노드와 전달된 노드가 동일한 경우
+                true로 반환함
+                
+                compareDocumentPosition은 특정 노드가 다른 노드와
+                하나 이상의 관계를
+                가질 수 있기 때문에 다소 혼동될 수 있음.
+
+                예를 들어 노드가
+                포함 관계 16이자
+                앞에 있는 경우4인
+                경우라면
+                compareDocumentPosition은 20을 반환한다고 함.
+
+            */    
+            var insideB = document.querySelector('html').compareDocumentPosition(document.querySelector('body'));
+            console.log(insideB); /* 20을 반환함 */
+
+        </script>
+    </body>
+</html>
