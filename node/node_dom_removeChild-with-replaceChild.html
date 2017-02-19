@@ -11,13 +11,19 @@
     부모 노드에서 삭제할 노드에 대한
     참조를 전달하여서
     removeChild() 메서드를 호출하는 과정을 거침.
-    
+
 -->
+
 <!doctype html>
 <html>
     <body>
         <div id="A">hi </div>
         <div id="B">u4bi</div>
+
+        <!-- id C와 D는 노드를 변경 즉 바꾸는 것에 사용될거임.
+             이는 제거하는 것과 별반 다르지 않음. -->
+        <div id="C">u4bi C</div>
+        <div id="D">u4bi D</div>
 
         <script>
             /* element Node 삭제*/
@@ -33,7 +39,29 @@
 
             */
 
+            /* eleement 노드 바꾸기 */
+            var divC= document.getElementById('C');
+            var newSpan = document.createElement('span');
+            newSpan.textContent = 'new u4bi C';
+            divC.parentNode.replaceChild(newSpan,divC);
+            /* 출력결과는 <span>new U4BI C</span>
+            */
+
+            /* 텍스트 노드 바꾸기 */
+            var divD = document.getElementById('D').firstChild;
+            var newText = document.createTextNode('new u4bi D');
+            divD.parentNode.replaceChild(newText, divD);
+            /* 출력결과는 <div id="D">new U4BI D</div>
+            */
 
         </script>
     </body>
 </html>
+
+<!--
+    제거하거나 바꾸는 대상이 무엇인지에 따라
+    innerHtml, outerHTML, textContent 속성에 빈 문자열을 주는 것이
+    더 쉽고 빠를 수도 있음.
+
+    하지만 브라우저의 메모리 누수가 발생할 수 있으니 조심해야한다고 함.
+-->
