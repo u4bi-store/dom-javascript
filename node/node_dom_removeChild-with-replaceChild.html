@@ -1,0 +1,39 @@
+<!--
+    dom을 제거하는 것은 여러 단계의
+    과정으로 이루어진다고 함.
+    
+    먼저 삭제하고자하는 노드를 선택해야함.
+
+    그 후 부모 노드에 대한 접근을 얻어야하는데
+    보통 parentNode 속성을
+    사용하게 된다고 함.
+
+    부모 노드에서 삭제할 노드에 대한
+    참조를 전달하여서
+    removeChild() 메서드를 호출하는 과정을 거침.
+    
+-->
+<!doctype html>
+<html>
+    <body>
+        <div id="A">hi </div>
+        <div id="B">u4bi</div>
+
+        <script>
+            /* element Node 삭제*/
+            var divA = document.getElementById('A');
+            divA.parentNode.removeChild(divA);
+
+            // 텍스트 노드 삭제
+            var divB = document.getElementById('B').firstChild;
+            divB.parentNode.removeChild(divB);
+
+            /*
+                새롭게 갱신된 dom을 출력하면 빈 div#B만 있음.
+
+            */
+
+
+        </script>
+    </body>
+</html>
