@@ -1,0 +1,35 @@
+<!--
+    appendChild()와 insertBefore() 노드 메서드는
+    javascript 노드 개체를 dom 트리에 삽입할 수 있게 해줌
+
+    appendChild() 메서드는 하나의 노드 혹은 여러노드를
+    메서드가 호출된 노드의 자식 노드 끝에 삽일할 수 있게 해줌.
+
+    자식 노드가 존재하지 않으면? 
+    해당 노드가 첫번째 자식으로 추가가 됨.
+    
+-->
+<!doctype html>
+<html>
+    <body>
+        <p>hi, </p>
+        <script>
+            /* 임시 element 노드와 text 노드를 생성 */
+            var elementNode = document.createElement('strong');
+            var textNdoe = document.createTextNode('u4bi');
+
+            /* 앞의 노드들을 dom에 추가 */
+            document.querySelector('p').appendChild(elementNode);
+            document.querySelector('strong').appendChild(textNdoe);
+
+            /* 출력하게되면
+               <p>
+                 hi, <strong>u4bi</strong>
+               </p>
+
+               출력됨
+            */
+
+        </script>
+    </body>
+</html>
