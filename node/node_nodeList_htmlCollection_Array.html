@@ -1,0 +1,55 @@
+<!--
+    NodeList나 HTMLCollection은 배열 형태이지만
+    array의 메서드를 상속하는 진정한 javascript 배열은 아니라고 함.
+
+-->
+
+<!doctype html>
+<html>
+    <body>
+        <a href="#"></a>
+
+        <script>
+            
+            console.log(Array.isArray(document.links));
+            /* 이는 HTMLCollection임
+               Array가 아니므로 false가 반환 됨
+            */
+
+            console.log(Array.isArray(document.querySelectorAll('a')));
+            /* 이는 NodeList임
+               Array가아니므로 false가 반환 됨
+            */
+
+            /*
+                NodeList나 HTMLCollection을 javascript 배열로 변환하는 것은 
+                몇가지 이점을 가져다준다고 함.
+
+                먼저 NodeList나 HTMLCollection이 라이브 리스트인데 비해
+                현재 DOM에 국한되지 않은 리스트 스냅샷을 만들 수 있게 해준다고 함.
+
+                암튼 내가 생각하는 최대 이점은 javascript 배열로 변환하면 Array 개체가
+                제공하는 메서드들 예로 foreach pop map reduce 등 에 접근할 수 있게 되는 점이라 생각함. 
+            */
+
+            console.log(Array.isArray(Array.prototype.slice.call(document.links))); /* true를 반환함 */
+            console.log(Array.isArray(Array.prototype.slice.call(document.querySelectorAll('a')))); /* true를 반환함 */
+
+            /*
+                유사 배열 리스트들을 javascript 배열로 변환하기 위해
+                call 혹은 apply에 유사 배열 리스트를 전달하면
+                
+                call 혹은 apply는 진짜 javascript 배열을 반환하는 
+                메서드를 호출함.
+
+                위에 코드에서는 slice 메서드를 사용하고 있는데
+                실제로는 아무것도 잘라내지 않는다고 함.
+
+                slice가 배열을 반환하므로 리스트를
+                javascript Array로 반환하는데
+                사용하고 있을뿐이라고 함.
+            */
+            
+        </script>
+    </body>
+</html>
