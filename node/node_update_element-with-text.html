@@ -30,13 +30,13 @@
             document.getElementById('B').outerHTML = '<span id="fix_b" class="new">u4bi B</span>';
 
             /* Text 노드를 생성해서 div#C의 내부를 갱신함 */
-            document.getElementById('C').textContent = 'u4bi C';
+            document.getElementById('C').textContent = 'u4bi\nC';
 
 /* 아래 innerText와 outerText는 비표준 확장이라함.
 */
 
             /* Text 노드를 생성해서 div#D를 내부를 갱신함 */
-            document.getElementById('D').innerText = 'u4bi D';
+            document.getElementById('D').innerText = 'u4bi\nD';
 
             /* Text 노드를 생성해서 div#E를 Text 노드로 바꿈
                여기서 div#E가 사라진다는점을 유의해야함.
@@ -59,3 +59,16 @@
         </script>
     </body>
 </html>
+
+
+<!-- innerHTML 속성은 문자열 내에서 발견된 HTML 요소를 실제 DOM 노드로
+     변환하는 반면 textContent는 텍스트 노드를 생성하는데만 사용 가능하다 함.
+
+     HTML 요소를 포함하고 있는 문자열을 textContent에 전달하면
+     단순히 텍스트로만 출력된다고 함.
+
+     innerHTML이 무겁고 비싼 대가를 치르는 HTML 파서를 호출하는데 비해
+     텍스트 노드 생성은 간단하게 처리되므로 innerHTML 계열의 사용을 삼가해야한다고 함.
+     
+
+-->
